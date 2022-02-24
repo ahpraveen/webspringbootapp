@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Docker image'){
             steps{
-                bat "docker build -t webspringbootapp:latest ."
+                bat "docker build -t ahpraveen23/webspringbootapp:latest ."
             }
         }
     }
