@@ -16,10 +16,8 @@ pipeline {
                // sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                
-                // To build image
-                bat "docker build -t webspringbootapp:1.0 ."
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"              
+                               
             }
 
             post {
@@ -31,9 +29,9 @@ pipeline {
                 }
             }
         }
-        stage('Testing'){
+        stage('Docker image'){
             steps{
-            echo "testing is completed"
+                bat "docker build -t webspringbootapp:latest ."
             }
         }
     }
