@@ -17,6 +17,9 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                
+                // To build image
+                bat "docker build -t webspringbootapp:1.0 ."
             }
 
             post {
