@@ -28,5 +28,13 @@ pipeline {
                     archiveArtifacts 'target/*.jar'
                 }
             }
-    }
+            
+		}
+		
+		stage('Create Docker Image'){
+			steps{
+				sh 'docker build -t ahpraveen23/webspringbootapp:latest .'
+			}
+		}
+    }    
 }
